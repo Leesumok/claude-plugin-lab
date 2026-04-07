@@ -1,0 +1,11 @@
+{
+  "name": "claude-plugin-lab",
+  "description": "GitHub 워크플로우 자동화를 위한 커스텀 슬래시 커맨드 모음 (plan-issue, code-gen, branch-commit, pull-request, merge)",
+  "version": "1.0.0",
+  "author": {
+    "name": "leesumok"
+  },
+  "repository": "https://github.com/leesumok/claude-plugin-lab",
+  "license": "MIT",
+  "keywords": ["github", "workflow", "git", "issue", "pull-request"]
+}

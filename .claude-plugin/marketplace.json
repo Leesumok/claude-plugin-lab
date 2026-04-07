@@ -1,0 +1,19 @@
+{
+  "name": "claude-plugin-lab",
+  "owner": {
+    "name": "leesumok"
+  },
+  "metadata": {
+    "description": "GitHub 워크플로우 자동화를 위한 Claude Code 플러그인 마켓플레이스"
+  },
+  "plugins": [
+    {
+      "name": "claude-plugin-lab",
+      "source": "./",
+      "description": "GitHub 워크플로우 자동화를 위한 커스텀 슬래시 커맨드 모음 (plan-issue, code-gen, branch-commit, pull-request, merge)",
+      "version": "1.0.0",
+      "category": "workflow",
+      "tags": ["github", "workflow", "git", "issue", "pull-request"]
+    }
+  ]
+}
