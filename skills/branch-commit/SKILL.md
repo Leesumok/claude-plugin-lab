@@ -1,6 +1,7 @@
 ---
 name: branch-commit
 description: 브랜치 생성, 커밋, 푸시
+args_description: "<브랜치명> [커밋메시지]"
 ---
 
 인자: $ARGUMENTS
@@ -26,3 +27,5 @@ description: 브랜치 생성, 커밋, 푸시
    - `git push -u origin <브랜치명>`
 
 5. 결과를 요약해줘 (브랜치명, 커밋 해시, 푸시 상태).
+
+6. 사용자에게 PR을 생성할지 물어봐줘. 사용자가 동의하면 `/pull-request` 스킬을 실행해줘.

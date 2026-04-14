@@ -1,6 +1,7 @@
 ---
 name: pull-request
 description: PR 생성
+args_description: "[PR 제목 | #이슈번호]"
 ---
 
 인자: $ARGUMENTS

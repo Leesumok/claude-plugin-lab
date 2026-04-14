@@ -1,6 +1,7 @@
 ---
 name: merge
 description: PR 병합
+args_description: "<PR 번호>"
 ---
 
 PR 번호: $ARGUMENTS
