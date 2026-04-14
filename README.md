@@ -22,6 +22,26 @@ plan-issue  →  code-gen  →  branch-commit  →  pull-request  →  merge
 
 이 플러그인의 주요 커맨드는 GitHub 이슈/PR 조회, 생성, 병합을 수행하므로 `gh` 인증이 필요합니다.
 
+## 권한 설정 (선택)
+
+이 플러그인은 `git`, `gh` 명령어를 자주 실행합니다. 매번 실행 허용 여부를 묻는 것이 번거롭다면, 프로젝트의 `.claude/settings.json`에 아래와 같이 권한을 미리 허용할 수 있습니다.
+
+```json
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(gh *)",
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  }
+}
+```
+
+> 이 설정은 선택사항입니다. 설정하지 않아도 각 명령 실행 시 개별적으로 허용할 수 있습니다.
+
 ## `gh` 설치 및 인증 가이드
 
 ### 1단계: `gh` 설치
