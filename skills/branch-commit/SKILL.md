@@ -25,18 +25,31 @@ args_description: "[브랜치명] [커밋메시지]"
    - 사용자가 현재 브랜치에 커밋하겠다고 하면 그대로 진행해줘.
 
 4. 대상 브랜치로 전환해줘:
-   - `git branch --list <브랜치명>`으로 존재 여부를 확인해줘.
-   - 이미 존재하면 `git checkout <브랜치명>`
-   - 없으면 `git checkout -b <브랜치명>`
+   - 로컬 브랜치가 있으면 `git checkout <브랜치명>`
+   - 로컬 브랜치가 없고 `origin/<브랜치명>`이 있으면 `git checkout --track origin/<브랜치명>`
+   - 로컬/원격 모두 없으면 `git checkout -b <브랜치명>`
+   - 브랜치 전환이 로컬 변경사항 때문에 막히면 강제 checkout, 자동 stash, reset을 하지 말고 사용자에게 확인해줘.
 
-5. 변경사항을 커밋해줘:
+5. 커밋 전에 최신 상태를 받아줘:
+   - `origin/<브랜치명>`이 있으면 `git pull --rebase --autostash origin <브랜치명>`를 실행해줘.
+   - `origin/<브랜치명>`이 없으면 신규 브랜치로 간주하고 이 단계는 생략해줘.
+   - pull 중 충돌이 나거나 autostash 적용 과정에서 충돌이 나면 자동 해결하지 말고 중단한 뒤 사용자에게 알려줘.
+
+6. 변경사항을 커밋해줘:
    - `git add`로 관련 파일 스테이징 (민감한 파일 제외)
    - 커밋 메시지가 없으면 변경사항을 분석해서 conventional commit 형식으로 자동 생성
    - `git commit`
 
-6. 리모트에 푸시해줘:
-   - `git push -u origin <브랜치명>`
+7. 리모트에 푸시해줘:
+   - 신규 브랜치면 `git push -u origin <브랜치명>`
+   - 기존 upstream 브랜치면 `git push`
+   - non-fast-forward로 거절되면 `--force` 또는 `--force-with-lease`를 자동으로 사용하지 말고 사용자에게 확인해줘.
 
-7. 결과를 요약해줘 (브랜치명, 커밋 해시, 푸시 상태).
+8. 결과를 요약해줘:
+   - 브랜치명
+   - 커밋 해시
+   - 신규 브랜치인지 기존 브랜치인지
+   - pull 수행 여부
+   - 푸시 상태
 
-8. 사용자에게 PR을 생성할지 물어봐줘. 사용자가 동의하면 `/pull-request` 스킬을 실행해줘.
+9. 사용자에게 PR을 생성할지 물어봐줘. 사용자가 동의하면 `/pull-request` 스킬을 실행해줘.
